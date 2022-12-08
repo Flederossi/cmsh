@@ -59,7 +59,11 @@ int start(char **splt){
 }
 
 int execs(char **splt){
-	// TODO: Add builtins
+	for (i = 0; i < builtin_count(); i++){
+		if (strcmp(splt[0], labels[i]) == 0){
+			return (*func[i])(splt);
+		}
+	}
 
 	return start(splt);
 }
