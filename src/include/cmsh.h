@@ -52,17 +52,15 @@ int start(char **splt){
 			perror("[cmsh:error]\n");
 		}
 	}else{
-		do {
-			wpid = waitpid(pid, &stat, WUNTRACED);
-		}while(!WIFEXITED(stat) && !WIFSIGNALED(stat));
+		wait(NULL);
 	}
 
 	return 1;
 }
 
 int execs(char **splt){
-	for (int i = 0; i < builtin_count(); i++){
-		if (strcmp(splt[0], labels[i]) == 0){
+	for (int i = 0; i < sizeof(builtin_lbls) / sizeof(char *); i++){
+		if (strcmp(splt[0], builtin_lbls[i]) == 0){
 			return (*func[i])(splt);
 		}
 	}
