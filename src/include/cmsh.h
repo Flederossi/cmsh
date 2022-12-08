@@ -44,7 +44,6 @@ char **split(char *in){
 
 int start(char **splt){
 	pid_t pid, wpid;
-	int stat;
 
 	pid = fork();
 	if (pid == 0){
