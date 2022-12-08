@@ -1,17 +1,17 @@
-int exit(char **splt);
+int exit_cmsh(char **splt);
 
 char *labels[] = {
 	"exit"
-}
+};
 
 int builtin_count(){
 	return sizeof(labels) / sizeof(char *);
 }
 
 int (*func[]) (char **) = {
-	&exit
-}
+	&exit_cmsh
+};
 
-int exit(char **splt){
-	return 1;
+int exit_cmsh(char **splt){
+	return 0;
 }

@@ -2,6 +2,8 @@
 #define TOK_SIZE 64
 #define DELIM " \t\r\a"
 
+#include "builtin.h"
+
 char *readl(){
 	int size = IN_SIZE, pos = 0;
 	char *buf = malloc(sizeof(char) * size);
@@ -59,7 +61,7 @@ int start(char **splt){
 }
 
 int execs(char **splt){
-	for (i = 0; i < builtin_count(); i++){
+	for (int i = 0; i < builtin_count(); i++){
 		if (strcmp(splt[0], labels[i]) == 0){
 			return (*func[i])(splt);
 		}
