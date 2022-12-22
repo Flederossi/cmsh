@@ -4,6 +4,5 @@ cmsh:
 clean:
 	rm bin/cmsh
 
-run:
-	make
+run: cmsh
 	./bin/cmsh
